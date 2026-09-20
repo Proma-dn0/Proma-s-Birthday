@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --wine-glow: rgba(107, 45, 62, 0.15);
+    --rose-glow: rgba(212, 165, 165, 0.25);
+    --sat: env(safe-area-inset-top, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #FAF7F2;
+    color: #33262A;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F5EFEB;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #D4A5A5;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9B3950;
+  }
+}
+
+@layer utilities {
+  /* Subtle film grain texture overlay */
+  .bg-grain {
+    background-image: radial-gradient(rgba(107, 45, 62, 0.04) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+
+  .bg-dark-grain {
+    background-image: radial-gradient(rgba(255, 230, 235, 0.05) 1px, transparent 0);
+    background-size: 28px 28px;
+  }
+
+  /* Polaroid shadows */
+  .shadow-polaroid {
+    box-shadow: 0 10px 25px -5px rgba(56, 14, 24, 0.1), 0 8px 10px -6px rgba(56, 14, 24, 0.06);
+  }
+
+  .shadow-polaroid-hover {
+    box-shadow: 0 20px 35px -5px rgba(56, 14, 24, 0.2), 0 12px 16px -6px rgba(56, 14, 24, 0.12);
+  }
+
+  /* 35mm film strip sprocket perforations */
+  .sprocket-border {
+    background-image: radial-gradient(circle, #FAF7F2 3px, transparent 3.5px);
+    background-size: 18px 14px;
+    background-repeat: repeat-x;
+  }
+
+  /* Washi tape effect */
+  .washi-tape {
+    background: rgba(235, 226, 216, 0.75);
+    backdrop-filter: blur(2px);
+    border-left: 2px dashed rgba(155, 57, 80, 0.2);
+    border-right: 2px dashed rgba(155, 57, 80, 0.2);
+  }
+
+  /* Question page button touch safety */
+  .question-button {
+    touch-action: manipulation;
+  }
+}
+
+/* Reduced motion preference support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
